@@ -12,6 +12,5 @@ namespace Entities.Types
         public string PaymentAgent { get; set; }
         public DateTime PaymentDate { get; set; }
         public DateTime SendDate { get; set; }
-
     }
 }

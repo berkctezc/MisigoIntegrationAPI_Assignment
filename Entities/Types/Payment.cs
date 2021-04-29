@@ -10,6 +10,5 @@ namespace Entities.Types
         public string CreditCardTypeCode { get; set; }
         public int InstallmentCount { get; set; }
         public decimal Amount { get; set; }
-
     }
 }
