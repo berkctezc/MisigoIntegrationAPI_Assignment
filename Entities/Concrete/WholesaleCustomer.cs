@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using Core.Entities;
+﻿using Core.Entities;
 using Entities.Abstract;
-using Entities.Types;
 
 namespace Entities.Concrete
 {
@@ -20,8 +18,8 @@ namespace Entities.Concrete
         public string TaxNumber { get; set; }
         public string TaxOfficeCode { get; set; }
         public string MersisNum { get; set; }
-        public List<PostalAddress> PostalAddresses { get; set; }
-        public List<Attribute> Attributes { get; set; }
-        public List<Communication> Communications { get; set; }
+        public int PostalAddressesId { get; set; }
+        public int AttributesId { get; set; }
+        public int CommunicationsId { get; set; }
     }
 }

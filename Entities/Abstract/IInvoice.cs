@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Core.Entities;
-using Entities.Types;
 
 namespace Entities.Abstract
 {
@@ -21,10 +19,10 @@ namespace Entities.Abstract
         public bool IsReturn { get; set; }
         public bool IsSalesViaInternet { get; set; }
         public string Description { get; set; }
-        public List<Line> Lines { get; set; }
-        public List<SumLine> SumLines { get; set; }
-        public SaleViaInternetInfo SalesViaInternetInfo { get; set; }
-        public List<Discount> Discounts { set; get; }
-        public List<Payment> Payments { set; get; }
+        public int LinesId { get; set; }
+        public int SumLinesId { get; set; }
+        public int SalesViaInternetInfoId { get; set; }
+        public int DiscountsId { set; get; }
+        public int PaymentsId { set; get; }
     }
 }

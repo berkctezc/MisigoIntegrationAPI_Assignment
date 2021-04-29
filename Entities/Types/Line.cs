@@ -2,6 +2,7 @@
 {
     public class Line
     {
+        public int Id { get; set; }
         public string ColorCode { get; set; }
         public string ItemCode { get; set; }
         public string ItemDim1Code { get; set; }

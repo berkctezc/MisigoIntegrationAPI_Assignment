@@ -1,9 +1,11 @@
 ﻿using System;
+using Core.Entities;
 
 namespace Entities.Types
 {
-    public class SaleViaInternetInfo
+    public class SaleViaInternetInfo:IEntity
     {
+        public int Id { get; set; }
         public string SalesURL { get; set; }
         public int PaymentTypeCode { get; set; }
         public string PaymentTypeDescription { get; set; }

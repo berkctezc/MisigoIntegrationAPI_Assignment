@@ -20,9 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="BusinessAspects\Autofac\" />
-    <Folder Include="Concrete\" />
     <Folder Include="Constants\" />
     <Folder Include="DependencyResolvers\Autofac\" />
     <Folder Include="ValidationRoutes\FluentValidation\" />

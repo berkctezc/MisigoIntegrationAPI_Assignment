@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Core.Entities;
 using Entities.Abstract;
-using Entities.Types;
 
 namespace Entities.Concrete
 {
@@ -22,10 +20,10 @@ namespace Entities.Concrete
         public string DocumentNumber { get; set; }
         public Guid SubCurrAccID { get; set; }
         public string Description { get; set; }
-        public List<Line> Lines { get; set; }
-        public List<SumLine> SumLines { get; set; }
-        public OrderViaInternetInfo OrdersViaInternetInfo { get; set; }
-        public List<Discount> Discounts { get; set; }
-        public List<Payment> Payments { get; set; }
+        public int LinesId { get; set; }
+        public int SumLinesId { get; set; }
+        public int OrdersViaInternetInfoId { get; set; }
+        public int DiscountsId { get; set; }
+        public int PaymentsId { get; set; }
     }
 }

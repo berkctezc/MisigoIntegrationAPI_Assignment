@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Entities;
-using Entities.Types;
+﻿using Core.Entities;
 
 namespace Entities.Abstract
 {
@@ -12,8 +10,8 @@ namespace Entities.Abstract
         public string OfficeCode { get; set; }
         public decimal CreditLimit { get; set; }
         public string CurrencyCode { get; set; }
-        public List<PostalAddress> PostalAddresses { get; set; }
-        public List<Types.Attribute> Attributes { get; set; }
-        public List<Communication> Communications { get; set; }
+        public int PostalAddressesId { get; set; }
+        public int AttributesId { get; set; }
+        public int CommunicationsId { get; set; }
     }
 }

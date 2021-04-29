@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Entities;
-using Entities.Types;
+﻿using Core.Entities;
 
 namespace Entities.Concrete
 {
@@ -18,7 +16,7 @@ namespace Entities.Concrete
         public bool UsePOS { get; set; }
         public bool UseStore { get; set; }
         public bool UseInternet { get; set; }
-        public List<Attribute> Attributes { get; set; }
-        public List<Variant> Variants { get; set; }
+        public int AttributesId { get; set; }
+        public int VariantsId { get; set; }
     }
 }
