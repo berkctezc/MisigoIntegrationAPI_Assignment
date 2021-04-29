@@ -11,6 +11,5 @@ namespace Business.Abstract
         IResult Update(Query query);
         IDataResult<List<Query>> GetAll();
         IDataResult<Query> GetById(int id);
-
     }
 }

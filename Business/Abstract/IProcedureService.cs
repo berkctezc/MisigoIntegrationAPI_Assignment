@@ -11,6 +11,5 @@ namespace Business.Abstract
         IResult Update(Procedure procedure);
         IDataResult<List<Procedure>> GetAll();
         IDataResult<Procedure> GetById(int id);
-
     }
 }
