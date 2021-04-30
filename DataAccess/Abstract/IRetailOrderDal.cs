@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
     public interface IRetailOrderDal:IEntityRepository<RetailOrder>
     {
         List<RetailOrderDto> GetRetailOrderDetails(Expression<Func<RetailOrder, bool>> filter = null);
-        RetailOrderDto GetRetailOrderDetailsById(Expression<Func<RetailOrder, bool>> filter = null);
+        RetailOrderDto GetRetailOrderDetailsById(Expression<Func<RetailOrder, bool>> filter);
     }
 }

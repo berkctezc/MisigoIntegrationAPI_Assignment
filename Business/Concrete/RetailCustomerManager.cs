@@ -62,7 +62,7 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<RetailCustomerDto> GetRetailCustomerDetailsById(int id)
         {
-            return new SuccessDataResult<RetailCustomerDto>(_retailCustomerDal.GetRetailCustomerDetailsById());
+            return new SuccessDataResult<RetailCustomerDto>(_retailCustomerDal.GetRetailCustomerDetailsById(rCD => rCD.Id == id));
         }
     }
 }

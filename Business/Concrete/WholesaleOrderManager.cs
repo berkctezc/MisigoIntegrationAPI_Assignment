@@ -60,7 +60,7 @@ namespace Business.Concrete
 
         public IDataResult<WholesaleOrderDto> GetWholesaleOrderDetailsById(int id)
         {
-            return new SuccessDataResult<WholesaleOrderDto>(_wholesaleOrderDal.GetWholesaleOrderDetailsById());
+            return new SuccessDataResult<WholesaleOrderDto>(_wholesaleOrderDal.GetWholesaleOrderDetailsById(wOD => wOD.Id == id));
         }
     }
 }
