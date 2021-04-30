@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
@@ -10,6 +12,8 @@ namespace Business.Abstract
         IResult Delete(Product product);
         IResult Update(Product product);
         IDataResult<List<Product>> GetAll();
+        IDataResult<List<ProductDto>> GetProductDetails();
         IDataResult<Product> GetById(int id);
+        IDataResult<ProductDto> GetProductDetailsById(int id);
     }
 }
