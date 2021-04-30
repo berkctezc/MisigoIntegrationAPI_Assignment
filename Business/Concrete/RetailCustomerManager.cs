@@ -1,35 +1,56 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using DataAccess.Abstract;
+using Entities.Concrete;
 
+//implement dtos on services
 namespace Business.Concrete
 {
-    public class RetailCustomerManager : IRetailCustomerService//implement operations
+    public class RetailCustomerManager : IRetailCustomerService
     {
-        public IResult Add(ICustomer customer)
+        private readonly IRetailCustomerDal _retailCustomerDal;
+
+        public RetailCustomerManager(IRetailCustomerDal retailCustomerDal)
         {
-            throw new System.NotImplementedException();
+            _retailCustomerDal = retailCustomerDal;
         }
 
-        public IResult Delete(ICustomer customer)
+        [CacheRemoveAspect("IRetailCustomerService.Get")]
+        public IResult Add(RetailCustomer retailCustomer)
         {
-            throw new System.NotImplementedException();
+            _retailCustomerDal.Add(retailCustomer);
+            return new SuccessResult(Messages.RetailCustomerAdded);
         }
 
-        public IResult Update(ICustomer customer)
+        [CacheRemoveAspect("IRetailCustomerService.Get")]
+        public IResult Delete(RetailCustomer retailCustomer)
         {
-            throw new System.NotImplementedException();
+            _retailCustomerDal.Delete(retailCustomer);
+            return new SuccessResult(Messages.RetailCustomerDeleted);
         }
 
-        public IDataResult<List<ICustomer>> GetAll()
+        [CacheRemoveAspect("IRetailCustomerService.Get")]
+        public IResult Update(RetailCustomer retailCustomer)
         {
-            throw new System.NotImplementedException();
+            _retailCustomerDal.Update(retailCustomer);
+            return new SuccessResult(Messages.RetailCustomerUpdated);
         }
 
-        public IDataResult<ICustomer> GetById(int id)
+        [CacheAspect]
+        [PerformanceAspect(5)]
+        public IDataResult<List<RetailCustomer>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<RetailCustomer>>(_retailCustomerDal.GetAll(), Messages.RetailCustomersListed);
+        }
+
+        [CacheAspect]
+        public IDataResult<RetailCustomer> GetById(int id)
+        {
+            return new SuccessDataResult<RetailCustomer>(_retailCustomerDal.Get(rCD => rCD.Id == id));
         }
     }
 }

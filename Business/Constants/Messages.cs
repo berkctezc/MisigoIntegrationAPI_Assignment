@@ -21,7 +21,7 @@
         public static string WholesaleCustomerAdded = "Wholesale Customer Added";
         public static string WholesaleCustomerDeleted = "Wholesale Customer Deleted";
         public static string WholesaleCustomerUpdated = "Wholesale Customer Updated";
-        public static string WholesaleCustomerListed = "Wholesale Customers Listed";
+        public static string WholesaleCustomersListed = "Wholesale Customers Listed";
         //
         public static string RetailOrderAdded = "Retail Order Added";
         public static string RetailOrderDeleted = "Retail Order Deleted";
