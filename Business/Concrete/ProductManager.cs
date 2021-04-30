@@ -5,7 +5,7 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class ProductManager : IProductService
+    public class ProductManager : IProductService//implement operations
     {
         public IResult Add(Product product)
         {

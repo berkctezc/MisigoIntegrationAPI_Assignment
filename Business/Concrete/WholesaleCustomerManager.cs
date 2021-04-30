@@ -5,7 +5,7 @@ using Entities.Abstract;
 
 namespace Business.Concrete
 {
-    public class WholesaleCustomerManager : IWholesaleCustomerService
+    public class WholesaleCustomerManager : IWholesaleCustomerService//implement operations
     {
         public IResult Add(ICustomer customer)
         {

@@ -5,7 +5,7 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class QueryManager : IQueryService
+    public class QueryManager : IQueryService//implement operations
     {
         public IResult Add(Query query)
         {

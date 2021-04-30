@@ -5,7 +5,7 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class ProcedureManager : IProcedureService
+    public class ProcedureManager : IProcedureService//implement operations
     {
         public IResult Add(Procedure procedure)
         {
