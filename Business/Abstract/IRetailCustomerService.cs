@@ -4,7 +4,7 @@ using Entities.Abstract;
 
 namespace Business.Abstract
 {
-    public interface ICustomerService
+    public interface IRetailCustomerService
     {
         IResult Add(ICustomer customer);
         IResult Delete(ICustomer customer);

@@ -4,7 +4,7 @@ using Entities.Abstract;
 
 namespace Business.Abstract
 {
-    public interface IInvoiceService
+    public interface IRetailInvoiceService
     {
         IResult Add(IInvoice invoice);
         IResult Delete(IInvoice invoice);
