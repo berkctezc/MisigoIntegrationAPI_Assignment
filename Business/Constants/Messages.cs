@@ -11,5 +11,9 @@
         public static string WholesaleOrderDeleted = "Wholesale Order Deleted";
         public static string WholesaleOrderUpdated = "Wholesale Order Updated";
         public static string WholesaleOrdersListed = "Wholesale Orders Listed";
+        public static string RetailOrderAdded;
+        public static string RetailOrderDeleted;
+        public static string RetailOrderUpdated;
+        public static string RetailOrdersListed;
     }
 }

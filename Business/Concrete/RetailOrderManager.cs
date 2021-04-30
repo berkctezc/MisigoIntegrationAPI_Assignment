@@ -1,35 +1,51 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Abstract;
+using Entities.Concrete;
 
+//implement dtos on services
 namespace Business.Concrete
 {
-    public class RetailOrderManager : IRetailOrderService//implement operations
+    public class RetailOrderManager : IRetailOrderService
     {
-        public IResult Add(IOrder order)
+        private readonly IRetailOrderDal _retailOrderDal;
+        [CacheRemoveAspect("IRetailOrderService.Get")]
+        public IResult Add(RetailOrder retailOrder)
         {
-            throw new System.NotImplementedException();
+            _retailOrderDal.Add(retailOrder);
+            return new SuccessResult(Messages.RetailOrderAdded);
         }
 
-        public IResult Delete(IOrder order)
+        [CacheRemoveAspect("IRetailOrderService.Get")]
+        public IResult Delete(RetailOrder retailOrder)
         {
-            throw new System.NotImplementedException();
+            _retailOrderDal.Delete(retailOrder);
+            return new SuccessResult(Messages.RetailOrderDeleted);
         }
 
-        public IResult Update(IOrder order)
+        [CacheRemoveAspect("IRetailOrderService.Get")]
+        public IResult Update(RetailOrder retailOrder)
         {
-            throw new System.NotImplementedException();
+            _retailOrderDal.Update(retailOrder);
+            return new SuccessResult(Messages.RetailOrderUpdated);
         }
 
-        public IDataResult<List<IOrder>> GetAll()
+        [CacheAspect]
+        [PerformanceAspect(5)]
+        public IDataResult<List<RetailOrder>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<RetailOrder>>(_retailOrderDal.GetAll(), Messages.RetailOrdersListed);
         }
 
-        public IDataResult<IOrder> GetById(int id)
+        [CacheAspect]
+        public IDataResult<RetailOrder> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<RetailOrder>(_retailOrderDal.Get(rOD => rOD.Id == id));
         }
     }
 }

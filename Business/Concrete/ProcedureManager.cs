@@ -50,7 +50,7 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<Procedure> GetById(int id)
         {
-            return new SuccessDataResult<Procedure>(_procedureDal.Get(c=>c.Id==id));
+            return new SuccessDataResult<Procedure>(_procedureDal.Get(p=>p.Id==id));
         }
     }
 }

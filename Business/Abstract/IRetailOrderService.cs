@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {
     public interface IRetailOrderService
     {
-        IResult Add(IOrder order);
-        IResult Delete(IOrder order);
-        IResult Update(IOrder order);
-        IDataResult<List<IOrder>> GetAll();
-        IDataResult<IOrder> GetById(int id);
+        IResult Add(RetailOrder retailOrder);
+        IResult Delete(RetailOrder retailOrder);
+        IResult Update(RetailOrder retailOrder);
+        IDataResult<List<RetailOrder>> GetAll();
+        IDataResult<RetailOrder> GetById(int id);
     }
 }
