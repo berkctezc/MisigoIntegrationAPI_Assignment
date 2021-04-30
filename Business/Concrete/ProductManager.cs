@@ -5,29 +5,29 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class ProcedureManager : IProcedureService
+    public class ProductManager : IProductService
     {
-        public IResult Add(Procedure procedure)
+        public IResult Add(Product product)
         {
             throw new System.NotImplementedException();
         }
 
-        public IResult Delete(Procedure procedure)
+        public IResult Delete(Product product)
         {
             throw new System.NotImplementedException();
         }
 
-        public IResult Update(Procedure procedure)
+        public IResult Update(Product product)
         {
             throw new System.NotImplementedException();
         }
 
-        public IDataResult<List<Procedure>> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
             throw new System.NotImplementedException();
         }
 
-        public IDataResult<Procedure> GetById(int id)
+        public IDataResult<Product> GetById(int id)
         {
             throw new System.NotImplementedException();
         }

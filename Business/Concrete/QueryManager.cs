@@ -5,29 +5,29 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class ProcedureManager : IProcedureService
+    public class QueryManager : IQueryService
     {
-        public IResult Add(Procedure procedure)
+        public IResult Add(Query query)
         {
             throw new System.NotImplementedException();
         }
 
-        public IResult Delete(Procedure procedure)
+        public IResult Delete(Query query)
         {
             throw new System.NotImplementedException();
         }
 
-        public IResult Update(Procedure procedure)
+        public IResult Update(Query query)
         {
             throw new System.NotImplementedException();
         }
 
-        public IDataResult<List<Procedure>> GetAll()
+        public IDataResult<List<Query>> GetAll()
         {
             throw new System.NotImplementedException();
         }
 
-        public IDataResult<Procedure> GetById(int id)
+        public IDataResult<Query> GetById(int id)
         {
             throw new System.NotImplementedException();
         }

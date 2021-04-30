@@ -1,33 +1,33 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
 using Core.Utilities.Results;
-using Entities.Concrete;
+using Entities.Abstract;
 
 namespace Business.Concrete
 {
-    public class ProcedureManager : IProcedureService
+    public class RetailInvoiceManager : IRetailInvoiceService
     {
-        public IResult Add(Procedure procedure)
+        public IResult Add(IInvoice invoice)
         {
             throw new System.NotImplementedException();
         }
 
-        public IResult Delete(Procedure procedure)
+        public IResult Delete(IInvoice invoice)
         {
             throw new System.NotImplementedException();
         }
 
-        public IResult Update(Procedure procedure)
+        public IResult Update(IInvoice invoice)
         {
             throw new System.NotImplementedException();
         }
 
-        public IDataResult<List<Procedure>> GetAll()
+        public IDataResult<List<IInvoice>> GetAll()
         {
             throw new System.NotImplementedException();
         }
 
-        public IDataResult<Procedure> GetById(int id)
+        public IDataResult<IInvoice> GetById(int id)
         {
             throw new System.NotImplementedException();
         }
