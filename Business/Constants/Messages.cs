@@ -18,5 +18,10 @@
         public static string RetailOrderUpdated = "Retail Order Updated";
         public static string RetailOrdersListed = "Retail Orders Listed";
         //
+        public static string RetailInvoiceAdded = "Retail Invoice Added";
+        public static string RetailInvoiceDeleted = "Retail Invoice Deleted";
+        public static string RetailInvoiceUpdated = "Retail Invoice Updated";
+        public static string RetailInvoicesListed = "Retail Invoices Listed";
+
     }
 }
