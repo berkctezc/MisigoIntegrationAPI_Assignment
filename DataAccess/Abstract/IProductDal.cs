@@ -7,7 +7,7 @@ using Entities.DTOs;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDal:IEntityRepository<Product>
+    public interface IProductDal : IEntityRepository<Product>
     {
         List<ProductDto> GetProductDetails(Expression<Func<Product, bool>> filter = null);
     }

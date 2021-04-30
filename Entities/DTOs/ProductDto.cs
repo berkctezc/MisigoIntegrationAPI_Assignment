@@ -24,6 +24,5 @@ namespace Entities.DTOs
         public int VariantsId { get; set; }
         public string ColorCode { get; set; }
         public string ItemDim1Code { get; set; }
-        //
     }
 }

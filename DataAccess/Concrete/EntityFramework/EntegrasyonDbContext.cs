@@ -2,7 +2,7 @@
 using Entities.Types;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entities
+namespace DataAccess.Concrete.EntityFramework
 {
     public class EntegrasyonDbContext : DbContext
     {
