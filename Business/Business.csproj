@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
     <Folder Include="DependencyResolvers\Autofac\" />
     <Folder Include="ValidationRoutes\FluentValidation\" />
   </ItemGroup>
