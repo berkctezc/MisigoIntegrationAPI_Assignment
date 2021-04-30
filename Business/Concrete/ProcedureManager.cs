@@ -6,8 +6,8 @@ using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
-//implement Dtos on services
 namespace Business.Concrete
 {
     public class ProcedureManager : IProcedureService
@@ -48,9 +48,21 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        public IDataResult<List<ProcedureDto>> GetProcedureDetails()
+        {
+            return new SuccessDataResult<List<ProcedureDto>>(_procedureDal.GetProcedureDetails());
+        }
+
+        [CacheAspect]
         public IDataResult<Procedure> GetById(int id)
         {
             return new SuccessDataResult<Procedure>(_procedureDal.Get(p=>p.Id==id));
+        }
+
+        [CacheAspect]
+        public IDataResult<ProcedureDto> GetProcedureDetailsById(int id)
+        {
+            return new SuccessDataResult<ProcedureDto>(_procedureDal.GetProcedureDetailsById());
         }
     }
 }
