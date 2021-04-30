@@ -37,5 +37,10 @@
         public static string RetailCustomerDeleted = "Retail Customer Deleted";
         public static string RetailCustomerUpdated = "Retail Customer Updated";
         public static string RetailCustomersListed = "Retail Customers Listed";
+        //
+        public static string QueryAdded = "Query Added";
+        public static string QueryDeleted = "Query Deleted";
+        public static string QueryUpdated = "Query Updated";
+        public static string QueriesListed = "Queries Listed";
     }
 }

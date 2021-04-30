@@ -1,35 +1,55 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class QueryManager : IQueryService//implement operations
+    public class QueryManager : IQueryService
     {
+        private readonly IQueryDal _queryDal;
+
+        public QueryManager(IQueryDal queryDal)
+        {
+            _queryDal = queryDal;
+        }
+
+        [CacheRemoveAspect("IQueryService.Get")]
         public IResult Add(Query query)
         {
-            throw new System.NotImplementedException();
+            _queryDal.Add(query);
+            return new SuccessResult(Messages.QueryAdded);
         }
 
+        [CacheRemoveAspect("IQueryService.Get")]
         public IResult Delete(Query query)
         {
-            throw new System.NotImplementedException();
+            _queryDal.Delete(query);
+            return new SuccessResult(Messages.QueryDeleted);
         }
 
+        [CacheRemoveAspect("IQueryService.Get")]
         public IResult Update(Query query)
         {
-            throw new System.NotImplementedException();
+            _queryDal.Update(query);
+            return new SuccessResult(Messages.QueryUpdated);
         }
 
+        [CacheAspect]
+        [PerformanceAspect(5)]
         public IDataResult<List<Query>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<Query>>(_queryDal.GetAll(), Messages.QueriesListed);
         }
 
+        [CacheAspect]
         public IDataResult<Query> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<Query>(_queryDal.Get(q => q.Id == id));
         }
     }
 }
