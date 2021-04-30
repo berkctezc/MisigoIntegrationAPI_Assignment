@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {
     public interface IWholesaleInvoiceService
     {
-        IResult Add(IInvoice invoice);
-        IResult Delete(IInvoice invoice);
-        IResult Update(IInvoice invoice);
-        IDataResult<List<IInvoice>> GetAll();
-        IDataResult<IInvoice> GetById(int id);
+        IResult Add(WholesaleInvoice wholesaleInvoice);
+        IResult Delete(WholesaleInvoice wholesaleInvoice);
+        IResult Update(WholesaleInvoice wholesaleInvoice);
+        IDataResult<List<WholesaleInvoice>> GetAll();
+        IDataResult<WholesaleInvoice> GetById(int id);
     }
 }

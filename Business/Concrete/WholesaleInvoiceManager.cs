@@ -1,35 +1,56 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using DataAccess.Abstract;
+using Entities.Concrete;
 
+// implement dtos on services
 namespace Business.Concrete
 {
-    public class WholesaleInvoiceManager : IWholesaleInvoiceService//implement operations
+    public class WholesaleInvoiceManager : IWholesaleInvoiceService
     {
-        public IResult Add(IInvoice invoice)
+        private readonly IWholesaleInvoiceDal _wholesaleInvoiceDal;
+
+        public WholesaleInvoiceManager(IWholesaleInvoiceDal wholesaleInvoiceDal)
         {
-            throw new System.NotImplementedException();
+            _wholesaleInvoiceDal = wholesaleInvoiceDal;
         }
 
-        public IResult Delete(IInvoice invoice)
+        [CacheRemoveAspect("IWholesaleInvoiceService.Get")]
+        public IResult Add(WholesaleInvoice wholesaleInvoice)
         {
-            throw new System.NotImplementedException();
+            _wholesaleInvoiceDal.Add(wholesaleInvoice);
+            return new SuccessResult(Messages.WholesaleInvoiceAdded);
         }
 
-        public IResult Update(IInvoice invoice)
+        [CacheRemoveAspect("IWholesaleInvoiceService.Get")]
+        public IResult Delete(WholesaleInvoice wholesaleInvoice)
         {
-            throw new System.NotImplementedException();
+            _wholesaleInvoiceDal.Delete(wholesaleInvoice);
+            return new SuccessResult(Messages.WholesaleInvoiceDeleted);
         }
 
-        public IDataResult<List<IInvoice>> GetAll()
+        [CacheRemoveAspect("IWholesaleInvoiceService.Get")]
+        public IResult Update(WholesaleInvoice wholesaleInvoice)
         {
-            throw new System.NotImplementedException();
+            _wholesaleInvoiceDal.Update(wholesaleInvoice);
+            return new SuccessResult(Messages.WholesaleInvoiceUpdated);
         }
 
-        public IDataResult<IInvoice> GetById(int id)
+        [CacheAspect]
+        [PerformanceAspect(5)]
+        public IDataResult<List<WholesaleInvoice>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<WholesaleInvoice>>(_wholesaleInvoiceDal.GetAll(), Messages.WholesaleInvoicesListed);
+        }
+
+        [CacheAspect]
+        public IDataResult<WholesaleInvoice> GetById(int id)
+        {
+            return new SuccessDataResult<WholesaleInvoice>(_wholesaleInvoiceDal.Get(wID => wID.Id == id));
         }
     }
 }
