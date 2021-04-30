@@ -37,7 +37,7 @@ namespace Business.Concrete
         public IResult Update(WholesaleOrder wholesaleOrder)
         {
             _wholesaleOrderDal.Update(wholesaleOrder);
-            return new SuccessResult(Messages.WholesaleOrderAdded);
+            return new SuccessResult(Messages.WholesaleOrderUpdated);
         }
 
         [CacheAspect]
