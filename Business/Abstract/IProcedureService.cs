@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
@@ -10,6 +12,8 @@ namespace Business.Abstract
         IResult Delete(Procedure procedure);
         IResult Update(Procedure procedure);
         IDataResult<List<Procedure>> GetAll();
+        IDataResult<List<ProcedureDto>> GetProcedureDetails();
         IDataResult<Procedure> GetById(int id);
+        IDataResult<ProcedureDto> GetProcedureDetailsById(int id);
     }
 }
