@@ -7,6 +7,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
+//implement Dtos on services
 namespace Business.Concrete
 {
     public class ProcedureManager : IProcedureService

@@ -1,35 +1,56 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using DataAccess.Abstract;
+using Entities.Concrete;
 
+//implement Dtos on services
 namespace Business.Concrete
 {
-    public class WholesaleOrderManager : IWholesaleOrderService//implement operations
+    public class WholesaleOrderManager : IWholesaleOrderService
     {
-        public IResult Add(IOrder order)
+        private readonly IWholesaleOrderDal _wholesaleOrderDal;
+
+        public WholesaleOrderManager(IWholesaleOrderDal wholesaleOrderDal)
         {
-            throw new System.NotImplementedException();
+            _wholesaleOrderDal = wholesaleOrderDal;
         }
 
-        public IResult Delete(IOrder order)
+        [CacheRemoveAspect("IWholesaleOrderService.Get")]
+        public IResult Add(WholesaleOrder wholesaleOrder)
         {
-            throw new System.NotImplementedException();
+            _wholesaleOrderDal.Add(wholesaleOrder);
+            return new SuccessResult(Messages.WholesaleOrderAdded);
         }
 
-        public IResult Update(IOrder order)
+        [CacheRemoveAspect("IWholesaleOrderService.Get")]
+        public IResult Delete(WholesaleOrder wholesaleOrder)
         {
-            throw new System.NotImplementedException();
+            _wholesaleOrderDal.Delete(wholesaleOrder);
+            return new SuccessResult(Messages.WholesaleOrderDeleted);
         }
 
-        public IDataResult<List<IOrder>> GetAll()
+        [CacheRemoveAspect("IWholesaleOrderService.Get")]
+        public IResult Update(WholesaleOrder wholesaleOrder)
         {
-            throw new System.NotImplementedException();
+            _wholesaleOrderDal.Update(wholesaleOrder);
+            return new SuccessResult(Messages.WholesaleOrderAdded);
         }
 
-        public IDataResult<IOrder> GetById(int id)
+        [CacheAspect]
+        [PerformanceAspect(5)]
+        public IDataResult<List<WholesaleOrder>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<WholesaleOrder>>(_wholesaleOrderDal.GetAll(), Messages.WholesaleOrdersListed);
+        }
+
+        [CacheAspect]
+        public IDataResult<WholesaleOrder> GetById(int id)
+        {
+            return new SuccessDataResult<WholesaleOrder>(_wholesaleOrderDal.Get( wOD=> wOD.Id == id));
         }
     }
 }
