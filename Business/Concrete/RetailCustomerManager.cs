@@ -6,8 +6,8 @@ using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
-//implement dtos on services
 namespace Business.Concrete
 {
     public class RetailCustomerManager : IRetailCustomerService
@@ -48,9 +48,21 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        public IDataResult<List<RetailCustomerDto>> GetRetailCustomerDetails()
+        {
+            return new SuccessDataResult<List<RetailCustomerDto>>(_retailCustomerDal.GetRetailCustomerDetails());
+        }
+
+        [CacheAspect]
         public IDataResult<RetailCustomer> GetById(int id)
         {
             return new SuccessDataResult<RetailCustomer>(_retailCustomerDal.Get(rCD => rCD.Id == id));
+        }
+
+        [CacheAspect]
+        public IDataResult<RetailCustomerDto> GetRetailCustomerDetailsById(int id)
+        {
+            return new SuccessDataResult<RetailCustomerDto>(_retailCustomerDal.GetRetailCustomerDetailsById());
         }
     }
 }
