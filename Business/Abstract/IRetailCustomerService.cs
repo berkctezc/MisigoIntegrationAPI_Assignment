@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {
     public interface IRetailCustomerService
     {
-        IResult Add(ICustomer customer);
-        IResult Delete(ICustomer customer);
-        IResult Update(ICustomer customer);
-        IDataResult<List<ICustomer>> GetAll();
-        IDataResult<ICustomer> GetById(int id);
+        IResult Add(RetailCustomer retailCustomer);
+        IResult Delete(RetailCustomer retailCustomer);
+        IResult Update(RetailCustomer retailCustomer);
+        IDataResult<List<RetailCustomer>> GetAll();
+        IDataResult<RetailCustomer> GetById(int id);
     }
 }
