@@ -50,7 +50,7 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<List<WholesaleCustomerDto>> GetWholesaleCustomerDetails()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<WholesaleCustomerDto>>(_wholesaleCustomerDal.GetWholesaleCustomerDetails());
         }
 
         [CacheAspect]
