@@ -62,7 +62,7 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<ProcedureDto> GetProcedureDetailsById(int id)
         {
-            return new SuccessDataResult<ProcedureDto>(_procedureDal.GetProcedureDetailsById());
+            return new SuccessDataResult<ProcedureDto>(_procedureDal.GetProcedureDetailsById(p => p.Id == id));
         }
     }
 }

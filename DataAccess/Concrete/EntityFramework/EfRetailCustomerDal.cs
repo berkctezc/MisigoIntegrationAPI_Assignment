@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
                    from retailCustomer in filter is null
                        ? context.RetailCustomers
                        : context.RetailCustomers.Where(filter)
-                   join postalAdress in context.PostalAddresses on retailCustomer.PostalAddressesId equals postalAdress.Id
+                   join postalAddress in context.PostalAddresses on retailCustomer.PostalAddressesId equals postalAddress.Id
                    join attribute in context.Attributes on retailCustomer.AttributesId equals attribute.Id
                    join communication in context.Communications on retailCustomer.CommunicationsId equals communication.Id
                    select new RetailCustomerDto
@@ -34,13 +34,13 @@ namespace DataAccess.Concrete.EntityFramework
                        CreditLimit = retailCustomer.CreditLimit,
                        CurrencyCode = retailCustomer.CurrencyCode,
                        //
-                       PostalAddressesId = postalAdress.Id,
-                       AdressTypeCode = postalAdress.AdressTypeCode,
-                       CountryCode = postalAdress.CountryCode,
-                       StateCode = postalAdress.StateCode,
-                       CityCode = postalAdress.CityCode,
-                       DistrictCode = postalAdress.DistrictCode,
-                       Address = postalAdress.Address,
+                       PostalAddressesId = postalAddress.Id,
+                       AdressTypeCode = postalAddress.AdressTypeCode,
+                       CountryCode = postalAddress.CountryCode,
+                       StateCode = postalAddress.StateCode,
+                       CityCode = postalAddress.CityCode,
+                       DistrictCode = postalAddress.DistrictCode,
+                       Address = postalAddress.Address,
                        //
                        AttributesId = attribute.Id,
                        AttributeTypeCode = attribute.AttributeTypeCode,
@@ -51,6 +51,49 @@ namespace DataAccess.Concrete.EntityFramework
                        CommAddress = communication.CommAddress
                    };
                 return result.ToList();
+            }
+        }
+
+        public RetailCustomerDto GetRetailCustomerDetailsById(Expression<Func<RetailCustomer, bool>> filter)
+        {
+            using (EntegrasyonDbContext context = new EntegrasyonDbContext())
+            {
+                var result =
+                   from retailCustomer in filter is null
+                       ? context.RetailCustomers
+                       : context.RetailCustomers.Where(filter)
+                   join postalAddress in context.PostalAddresses on retailCustomer.PostalAddressesId equals postalAddress.Id
+                   join attribute in context.Attributes on retailCustomer.AttributesId equals attribute.Id
+                   join communication in context.Communications on retailCustomer.CommunicationsId equals communication.Id
+                   select new RetailCustomerDto
+                   {
+                       Id = retailCustomer.Id,
+                       ModelType = retailCustomer.ModelType,
+                       FirstName = retailCustomer.FirstName,
+                       LastName = retailCustomer.LastName,
+                       IdentityNum = retailCustomer.IdentityNum,
+                       OfficeCode = retailCustomer.OfficeCode,
+                       RetailSalePriceGroupCode = retailCustomer.RetailSalePriceGroupCode,
+                       CreditLimit = retailCustomer.CreditLimit,
+                       CurrencyCode = retailCustomer.CurrencyCode,
+                       //
+                       PostalAddressesId = postalAddress.Id,
+                       AdressTypeCode = postalAddress.AdressTypeCode,
+                       CountryCode = postalAddress.CountryCode,
+                       StateCode = postalAddress.StateCode,
+                       CityCode = postalAddress.CityCode,
+                       DistrictCode = postalAddress.DistrictCode,
+                       Address = postalAddress.Address,
+                       //
+                       AttributesId = attribute.Id,
+                       AttributeTypeCode = attribute.AttributeTypeCode,
+                       AttributeCode = attribute.AttributeCode,
+                       //
+                       CommunicationsId = communication.Id,
+                       CommunicationTypeCode = communication.CommunicationTypeCode,
+                       CommAddress = communication.CommAddress
+                   };
+                return result.SingleOrDefault();
             }
         }
     }

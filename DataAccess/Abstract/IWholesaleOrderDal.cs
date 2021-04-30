@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
     public interface IWholesaleOrderDal:IEntityRepository<WholesaleOrder>
     {
         List<WholesaleOrderDto> GetWholesaleOrderDetails(Expression<Func<WholesaleOrder, bool>> filter = null);
-        WholesaleOrderDto GetWholesaleOrderDetailsById(Expression<Func<WholesaleOrder, bool>> filter = null);
+        WholesaleOrderDto GetWholesaleOrderDetailsById(Expression<Func<WholesaleOrder, bool>> filter);
     }
 }
