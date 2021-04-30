@@ -32,5 +32,27 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+
+        public ProcedureDto GetProcedureDetailsById(Expression<Func<Procedure, bool>> filter)
+        {
+            using (EntegrasyonDbContext context = new EntegrasyonDbContext())
+            {
+                var result =
+                    from procedure in filter is null ? context.Procedures : context.Procedures.Where(filter)
+                    join parameter in context.Parameters
+                        on procedure.ParametersId equals parameter.Id
+                    select new ProcedureDto
+                    {
+                        Id = procedure.Id,
+                        ModelType = procedure.ModelType,
+                        ProcName = procedure.ProcName,
+                        //
+                        ParametersId = parameter.Id,
+                        ParametersName = parameter.Name,
+                        ParametersValue = parameter.Value
+                    };
+                return result.SingleOrDefault();
+            }
+        }
     }
 }
