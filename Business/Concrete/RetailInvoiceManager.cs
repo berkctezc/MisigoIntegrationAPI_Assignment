@@ -8,7 +8,6 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 
-//implement dtos on services
 namespace Business.Concrete
 {
     public class RetailInvoiceManager : IRetailInvoiceService

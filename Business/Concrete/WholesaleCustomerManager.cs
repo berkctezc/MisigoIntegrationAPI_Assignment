@@ -6,6 +6,7 @@ using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 //implement dtos on services
 namespace Business.Concrete
@@ -48,9 +49,21 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        public IDataResult<List<WholesaleCustomerDto>> GetWholesaleCustomerDetails()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        [CacheAspect]
         public IDataResult<WholesaleCustomer> GetById(int id)
         {
             return new SuccessDataResult<WholesaleCustomer>(_wholesaleCustomerDal.Get(wCD => wCD.Id == id));
+        }
+
+        [CacheAspect]
+        public IDataResult<WholesaleCustomerDto> GetWholesaleCustomerDetailsById(int id)
+        {
+            return new SuccessDataResult<WholesaleCustomerDto>(_wholesaleCustomerDal.GetWholesaleCustomerDetailsById());
         }
     }
 }
