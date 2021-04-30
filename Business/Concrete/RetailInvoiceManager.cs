@@ -1,35 +1,56 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
-using Entities.Abstract;
+using DataAccess.Abstract;
+using Entities.Concrete;
 
+//implement dtos on services
 namespace Business.Concrete
 {
-    public class RetailInvoiceManager : IRetailInvoiceService//implement operations
+    public class RetailInvoiceManager : IRetailInvoiceService
     {
-        public IResult Add(IInvoice invoice)
+        private readonly IRetailInvoiceDal _retailInvoiceDal;
+
+        public RetailInvoiceManager(IRetailInvoiceDal retailInvoiceDal)
         {
-            throw new System.NotImplementedException();
+            _retailInvoiceDal = retailInvoiceDal;
         }
 
-        public IResult Delete(IInvoice invoice)
+        [CacheRemoveAspect("IRetailInvoiceService.Get")]
+        public IResult Add(RetailInvoice retailInvoice)
         {
-            throw new System.NotImplementedException();
+            _retailInvoiceDal.Add(retailInvoice);
+            return new SuccessResult(Messages.RetailInvoiceAdded);
         }
 
-        public IResult Update(IInvoice invoice)
+        [CacheRemoveAspect("IRetailInvoiceService.Get")]
+        public IResult Delete(RetailInvoice retailInvoice)
         {
-            throw new System.NotImplementedException();
+            _retailInvoiceDal.Delete(retailInvoice);
+            return new SuccessResult(Messages.RetailInvoiceDeleted);
         }
 
-        public IDataResult<List<IInvoice>> GetAll()
+        [CacheRemoveAspect("IRetailInvoiceService.Get")]
+        public IResult Update(RetailInvoice retailInvoice)
         {
-            throw new System.NotImplementedException();
+            _retailInvoiceDal.Update(retailInvoice);
+            return new SuccessResult(Messages.RetailInvoiceUpdated);
         }
 
-        public IDataResult<IInvoice> GetById(int id)
+        [CacheAspect]
+        [PerformanceAspect(5)]
+        public IDataResult<List<RetailInvoice>> GetAll()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<RetailInvoice>>(_retailInvoiceDal.GetAll(), Messages.RetailInvoicesListed);
+        }
+
+        [CacheAspect]
+        public IDataResult<RetailInvoice> GetById(int id)
+        {
+            return new SuccessDataResult<RetailInvoice>(_retailInvoiceDal.Get(rID => rID.Id == id));
         }
     }
 }
