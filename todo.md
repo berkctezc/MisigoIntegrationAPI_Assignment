@@ -2,7 +2,6 @@
 - jwt
 - authentication, authorization
 - session
-- dto add update
-- controllers of api
-- db tables, schema, placeholder content
+- dto add, update
+- db placeholder content
 - basic frontend

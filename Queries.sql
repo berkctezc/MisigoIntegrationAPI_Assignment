@@ -1,2 +1,0 @@
-﻿create database fake_entegrasyondb
-use fake_entegrasyondb
