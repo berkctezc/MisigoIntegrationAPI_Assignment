@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[Procedures]
 );
 
 CREATE TABLE [dbo].[Products] (
-    [Id]                 INT          NOT NULL,
+    [Id]                 INT          NOT NULL IDENTITY,
     [ModelType]          INT          NOT NULL,
     [ItemTypeCode]       TINYINT      NOT NULL,
     [ItemCode]           VARCHAR (50) NOT NULL,
