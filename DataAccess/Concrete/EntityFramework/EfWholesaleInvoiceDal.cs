@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                        : context.WholesaleInvoices.Where(filter)
                    join line in context.Lines on wholesaleInvoice.LinesId equals line.Id
                    join sumline in context.SumLines on wholesaleInvoice.SumLinesId equals sumline.Id
-                   join salesviainternetinfo in context.SaleViaInternetInfos on wholesaleInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
+                   join salesviainternetinfo in context.SalesViaInternetInfo on wholesaleInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
                    join discount in context.Discounts on wholesaleInvoice.DiscountsId equals discount.Id
                    join payment in context.Payments on wholesaleInvoice.PaymentsId equals payment.Id
                    select new WholesaleInvoiceDto
@@ -92,7 +92,7 @@ namespace DataAccess.Concrete.EntityFramework
                        : context.WholesaleInvoices.Where(filter)
                    join line in context.Lines on wholesaleInvoice.LinesId equals line.Id
                    join sumline in context.SumLines on wholesaleInvoice.SumLinesId equals sumline.Id
-                   join salesviainternetinfo in context.SaleViaInternetInfos on wholesaleInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
+                   join salesviainternetinfo in context.SalesViaInternetInfo on wholesaleInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
                    join discount in context.Discounts on wholesaleInvoice.DiscountsId equals discount.Id
                    join payment in context.Payments on wholesaleInvoice.PaymentsId equals payment.Id
                    select new WholesaleInvoiceDto

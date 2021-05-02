@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                        : context.RetailInvoices.Where(filter)
                    join line in context.Lines on retailInvoice.LinesId equals line.Id
                    join sumline in context.SumLines on retailInvoice.SumLinesId equals sumline.Id
-                   join salesviainternetinfo in context.SaleViaInternetInfos on retailInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
+                   join salesviainternetinfo in context.SalesViaInternetInfo on retailInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
                    join discount in context.Discounts on retailInvoice.DiscountsId equals discount.Id
                    join payment in context.Payments on retailInvoice.PaymentsId equals payment.Id
                    select new RetailInvoiceDto()
@@ -92,7 +92,7 @@ namespace DataAccess.Concrete.EntityFramework
                        : context.RetailInvoices.Where(filter)
                    join line in context.Lines on retailInvoice.LinesId equals line.Id
                    join sumline in context.SumLines on retailInvoice.SumLinesId equals sumline.Id
-                   join salesviainternetinfo in context.SaleViaInternetInfos on retailInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
+                   join salesviainternetinfo in context.SalesViaInternetInfo on retailInvoice.SalesViaInternetInfoId equals salesviainternetinfo.Id
                    join discount in context.Discounts on retailInvoice.DiscountsId equals discount.Id
                    join payment in context.Payments on retailInvoice.PaymentsId equals payment.Id
                    select new RetailInvoiceDto()

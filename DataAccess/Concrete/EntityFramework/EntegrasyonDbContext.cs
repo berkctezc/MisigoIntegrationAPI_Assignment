@@ -8,7 +8,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Initial Catalog=Entegrasyon;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Initial Catalog=fake_entegrasyondb;Trusted_Connection=true");
         }
 
         public DbSet<Connect> Connects { get; set; }
@@ -26,11 +26,11 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<Line> Lines { get; set; }
         public DbSet<ModelType> ModelTypes { get; set; }
-        public DbSet<OrderViaInternetInfo> OrderViaInternetInfos { get; set; }
+        public DbSet<OrderViaInternetInfo> OrdersViaInternetInfos { get; set; }
         public DbSet<Parameter> Parameters { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PostalAddress> PostalAddresses { get; set; }
-        public DbSet<SaleViaInternetInfo> SaleViaInternetInfos { get; set; }
+        public DbSet<SaleViaInternetInfo> SalesViaInternetInfo { get; set; }
         public DbSet<SumLine> SumLines { get; set; }
         public DbSet<Variant> Variants { get; set; }
     }

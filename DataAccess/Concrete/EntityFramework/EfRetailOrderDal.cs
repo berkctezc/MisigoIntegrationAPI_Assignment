@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                        : context.RetailOrders.Where(filter)
                    join line in context.Lines on retailOrder.LinesId equals line.Id
                    join sumline in context.SumLines on retailOrder.LinesId equals sumline.Id
-                   join orderviainternetinfo in context.OrderViaInternetInfos on retailOrder.OrdersViaInternetInfoId equals orderviainternetinfo.Id
+                   join orderviainternetinfo in context.OrdersViaInternetInfos on retailOrder.OrdersViaInternetInfoId equals orderviainternetinfo.Id
                    join discount in context.Discounts on retailOrder.DiscountsId equals discount.Id
                    join payment in context.Payments on retailOrder.PaymentsId equals payment.Id
                    select new RetailOrderDto
@@ -90,7 +90,7 @@ namespace DataAccess.Concrete.EntityFramework
                        : context.RetailOrders.Where(filter)
                    join line in context.Lines on retailOrder.LinesId equals line.Id
                    join sumline in context.SumLines on retailOrder.LinesId equals sumline.Id
-                   join orderviainternetinfo in context.OrderViaInternetInfos on retailOrder.OrdersViaInternetInfoId equals orderviainternetinfo.Id
+                   join orderviainternetinfo in context.OrdersViaInternetInfos on retailOrder.OrdersViaInternetInfoId equals orderviainternetinfo.Id
                    join discount in context.Discounts on retailOrder.DiscountsId equals discount.Id
                    join payment in context.Payments on retailOrder.PaymentsId equals payment.Id
                    select new RetailOrderDto
