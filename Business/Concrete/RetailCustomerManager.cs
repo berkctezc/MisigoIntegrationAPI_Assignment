@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRoutes.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,6 +21,7 @@ namespace Business.Concrete
             _retailCustomerDal = retailCustomerDal;
         }
 
+        [ValidationAspect(typeof(RetailCustomerValidator))]
         [CacheRemoveAspect("IRetailCustomerService.Get")]
         public IResult Add(RetailCustomer retailCustomer)
         {
@@ -33,6 +36,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RetailCustomerDeleted);
         }
 
+        [ValidationAspect(typeof(RetailCustomerValidator))]
         [CacheRemoveAspect("IRetailCustomerService.Get")]
         public IResult Update(RetailCustomer retailCustomer)
         {
