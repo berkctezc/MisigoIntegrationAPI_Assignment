@@ -19,9 +19,4 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DependencyResolvers\Autofac\" />
-    <Folder Include="ValidationRoutes\FluentValidation\" />
-  </ItemGroup>
-
 </Project>

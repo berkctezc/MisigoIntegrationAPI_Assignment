@@ -35,7 +35,7 @@ namespace DataAccess.Concrete.EntityFramework
                        CurrencyCode = retailCustomer.CurrencyCode,
                        //
                        PostalAddressesId = postalAddress.Id,
-                       AdressTypeCode = postalAddress.AdressTypeCode,
+                       AddressTypeCode = postalAddress.AddressTypeCode,
                        CountryCode = postalAddress.CountryCode,
                        StateCode = postalAddress.StateCode,
                        CityCode = postalAddress.CityCode,
@@ -78,7 +78,7 @@ namespace DataAccess.Concrete.EntityFramework
                        CurrencyCode = retailCustomer.CurrencyCode,
                        //
                        PostalAddressesId = postalAddress.Id,
-                       AdressTypeCode = postalAddress.AdressTypeCode,
+                       AddressTypeCode = postalAddress.AddressTypeCode,
                        CountryCode = postalAddress.CountryCode,
                        StateCode = postalAddress.StateCode,
                        CityCode = postalAddress.CityCode,

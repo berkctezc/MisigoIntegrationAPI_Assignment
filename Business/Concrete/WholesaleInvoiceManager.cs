@@ -6,6 +6,7 @@ using Core.Aspects.Autofac.Performance;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -47,9 +48,20 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        public IDataResult<List<WholesaleInvoiceDto>> GetWholesaleInvoiceDetails()
+        {
+            return new SuccessDataResult<List<WholesaleInvoiceDto>>(_wholesaleInvoiceDal.GetWholesaleInvoiceDetails());
+        }
+
+        [CacheAspect]
         public IDataResult<WholesaleInvoice> GetById(int id)
         {
             return new SuccessDataResult<WholesaleInvoice>(_wholesaleInvoiceDal.Get(wID => wID.Id == id));
+        }
+
+        public IDataResult<WholesaleInvoiceDto> GetWholesaleInvoiceDetailsById(int id)
+        {
+            return new SuccessDataResult<WholesaleInvoiceDto>(_wholesaleInvoiceDal.GetWholesaleInvoiceDetailsById(wID => wID.Id == id));
         }
     }
 }

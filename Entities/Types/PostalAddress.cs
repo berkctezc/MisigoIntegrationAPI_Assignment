@@ -5,7 +5,7 @@ namespace Entities.Types
     public class PostalAddress:IEntity
     {
         public int Id { get; set; }
-        public string AdressTypeCode { get; set; }
+        public string AddressTypeCode { get; set; }
         public string CountryCode { get; set; }
         public string StateCode { get; set; }
         public string CityCode { get; set; }

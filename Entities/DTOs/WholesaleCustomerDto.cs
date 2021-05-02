@@ -19,7 +19,7 @@ namespace Entities.DTOs
         public string MersisNum { get; set; }
         //
         public int PostalAddressesId { get; set; }
-        public string AdressTypeCode { get; set; }
+        public string AddressTypeCode { get; set; }
         public string CountryCode { get; set; }
         public string StateCode { get; set; }
         public string CityCode { get; set; }
