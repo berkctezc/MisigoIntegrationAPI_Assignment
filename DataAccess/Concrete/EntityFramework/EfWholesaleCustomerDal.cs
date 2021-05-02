@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
                    from wholesaleCustomer in filter is null
                        ? context.WholesaleCustomers
                        : context.WholesaleCustomers.Where(filter)
-                   join postalAdress in context.PostalAddresses on wholesaleCustomer.PostalAddressesId equals postalAdress.Id
+                   join postalAddress in context.PostalAddresses on wholesaleCustomer.PostalAddressesId equals postalAddress.Id
                    join attribute in context.Attributes on wholesaleCustomer.AttributesId equals attribute.Id
                    join communication in context.Communications on wholesaleCustomer.CommunicationsId equals communication.Id
                    select new WholesaleCustomerDto
@@ -38,13 +38,13 @@ namespace DataAccess.Concrete.EntityFramework
                        TaxOfficeCode = wholesaleCustomer.TaxOfficeCode,
                        MersisNum = wholesaleCustomer.MersisNum,
                        //
-                       PostalAddressesId = postalAdress.Id,
-                       AdressTypeCode = postalAdress.AdressTypeCode,
-                       CountryCode = postalAdress.CountryCode,
-                       StateCode = postalAdress.StateCode,
-                       CityCode = postalAdress.CityCode,
-                       DistrictCode = postalAdress.DistrictCode,
-                       Address = postalAdress.Address,
+                       PostalAddressesId = postalAddress.Id,
+                       AddressTypeCode = postalAddress.AddressTypeCode,
+                       CountryCode = postalAddress.CountryCode,
+                       StateCode = postalAddress.StateCode,
+                       CityCode = postalAddress.CityCode,
+                       DistrictCode = postalAddress.DistrictCode,
+                       Address = postalAddress.Address,
                        //
                        AttributesId = attribute.Id,
                        AttributeTypeCode = attribute.AttributeTypeCode,
@@ -66,7 +66,7 @@ namespace DataAccess.Concrete.EntityFramework
                    from wholesaleCustomer in filter is null
                        ? context.WholesaleCustomers
                        : context.WholesaleCustomers.Where(filter)
-                   join postalAdress in context.PostalAddresses on wholesaleCustomer.PostalAddressesId equals postalAdress.Id
+                   join postalAddress in context.PostalAddresses on wholesaleCustomer.PostalAddressesId equals postalAddress.Id
                    join attribute in context.Attributes on wholesaleCustomer.AttributesId equals attribute.Id
                    join communication in context.Communications on wholesaleCustomer.CommunicationsId equals communication.Id
                    select new WholesaleCustomerDto
@@ -85,13 +85,13 @@ namespace DataAccess.Concrete.EntityFramework
                        TaxOfficeCode = wholesaleCustomer.TaxOfficeCode,
                        MersisNum = wholesaleCustomer.MersisNum,
                        //
-                       PostalAddressesId = postalAdress.Id,
-                       AdressTypeCode = postalAdress.AdressTypeCode,
-                       CountryCode = postalAdress.CountryCode,
-                       StateCode = postalAdress.StateCode,
-                       CityCode = postalAdress.CityCode,
-                       DistrictCode = postalAdress.DistrictCode,
-                       Address = postalAdress.Address,
+                       PostalAddressesId = postalAddress.Id,
+                       AddressTypeCode = postalAddress.AddressTypeCode,
+                       CountryCode = postalAddress.CountryCode,
+                       StateCode = postalAddress.StateCode,
+                       CityCode = postalAddress.CityCode,
+                       DistrictCode = postalAddress.DistrictCode,
+                       Address = postalAddress.Address,
                        //
                        AttributesId = attribute.Id,
                        AttributeTypeCode = attribute.AttributeTypeCode,
