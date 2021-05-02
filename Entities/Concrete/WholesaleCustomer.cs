@@ -3,7 +3,7 @@ using Entities.Abstract;
 
 namespace Entities.Concrete
 {
-    public class WholesaleCustomer:IEntity, ICustomer
+    public class WholesaleCustomer : IEntity, ICustomer
     {
         public int Id { get; set; }
         public int ModelType { get; set; }

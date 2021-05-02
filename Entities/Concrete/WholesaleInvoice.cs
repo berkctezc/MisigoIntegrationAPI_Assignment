@@ -11,7 +11,7 @@ namespace Entities.Concrete
         public string CustomerCode { get; set; }
         public int CompanyCode { get; set; }
         public string OfficeCode { get; set; }
-        public string WarehouseCode { get; set; }
+        public string WareHouseCode { get; set; }
         public string DeliveryCompanyCode { get; set; }
         public string ShipmentMethodCode { get; set; }
         public DateTime InvoiceDate { set; get; }

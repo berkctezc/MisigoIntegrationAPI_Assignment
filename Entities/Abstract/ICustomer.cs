@@ -5,6 +5,7 @@ namespace Entities.Abstract
     public interface ICustomer:IEntity
     {
         public int Id { get; set; }
+        public string CurrAccCode { get; set; }
         public int ModelType { get; set; }
         public string IdentityNum { get; set; }
         public string OfficeCode { get; set; }

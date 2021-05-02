@@ -68,6 +68,7 @@ namespace DataAccess.Concrete.EntityFramework
                    select new RetailCustomerDto
                    {
                        Id = retailCustomer.Id,
+                       CurrAccCode = retailCustomer.CurrAccCode,
                        ModelType = retailCustomer.ModelType,
                        FirstName = retailCustomer.FirstName,
                        LastName = retailCustomer.LastName,
