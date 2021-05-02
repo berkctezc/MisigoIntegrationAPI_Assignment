@@ -1,3 +1,6 @@
+using Core.DependencyResolvers;
+using Core.Extensions;
+using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,9 +24,15 @@ namespace WebAPI
         {
 
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
+            });
+
+            ServiceTool.Create(services);
+            services.AddDependencyResolvers(new ICoreModule[] {
+                new CoreModule()
             });
         }
 
@@ -37,9 +46,13 @@ namespace WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()); //frontend dev port
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
