@@ -6,18 +6,18 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProcedureController : ControllerBase
+    public class ProductController : ControllerBase
     {
-        IProcedureService _procedureService;
-        public ProcedureController(IProcedureService procedureService)
+        IProductService _productService;
+        public ProductController(IProductService productService)
         {
-            _procedureService = procedureService;
+            _productService = productService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _procedureService.GetAll();
+            var result = _productService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         [HttpGet("getalldetails")]
         public IActionResult GetAllDetails()
         {
-            var result = _procedureService.GetProcedureDetails();
+            var result = _productService.GetProductDetails();
             if (result.Success)
             {
                 return Ok(result);
@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _procedureService.GetById(id);
+            var result = _productService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
         [HttpGet("getdetailsbyid")]
         public IActionResult GetDetailsById(int id)
         {
-            var result = _procedureService.GetProcedureDetailsById(id);
+            var result = _productService.GetProductDetailsById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -60,9 +60,9 @@ namespace WebAPI.Controllers
 
 
         [HttpPost("add")]
-        public IActionResult Add(Procedure procedure)
+        public IActionResult Add(Product product)
         {
-            var result = _procedureService.Add(procedure);
+            var result = _productService.Add(product);
             if (result.Success)
             {
                 return Ok(result);
@@ -71,9 +71,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Procedure procedure)
+        public IActionResult Delete(Product product)
         {
-            var result = _procedureService.Delete(procedure);
+            var result = _productService.Delete(product);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -82,9 +82,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Procedure procedure)
+        public IActionResult Update(Product product)
         {
-            var result = _procedureService.Update(procedure);
+            var result = _productService.Update(product);
             if (result.Success)
             {
                 return Ok(result.Message);
