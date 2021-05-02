@@ -21,7 +21,7 @@ namespace Business.Concrete
             _retailCustomerDal = retailCustomerDal;
         }
 
-        [ValidationAspect(typeof(RetailCustomerValidator))]
+        //[ValidationAspect(typeof(RetailCustomerValidator))]
         [CacheRemoveAspect("IRetailCustomerService.Get")]
         public IResult Add(RetailCustomer retailCustomer)
         {
