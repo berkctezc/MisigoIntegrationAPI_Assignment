@@ -1,5 +1,4 @@
-﻿using Entities.Concrete;
-using Entities.DTOs;
+﻿using Entities.DTOs;
 using FluentValidation;
 
 namespace Business.ValidationRoutes.FluentValidation
