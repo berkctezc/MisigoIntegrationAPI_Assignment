@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ? context.WholesaleOrders
                         : context.WholesaleOrders.Where(filter)
                     join line in context.Lines on wholesaleOrder.LinesId equals line.Id
-                    join orderviainternetinfo in context.OrderViaInternetInfos on wholesaleOrder.OrdersViaInternetInfoId
+                    join orderviainternetinfo in context.OrdersViaInternetInfos on wholesaleOrder.OrdersViaInternetInfoId
                         equals orderviainternetinfo.Id
                     join discount in context.Discounts on wholesaleOrder.DiscountsId equals discount.Id
                     join payment in context.Payments on wholesaleOrder.PaymentsId equals payment.Id
@@ -84,7 +84,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ? context.WholesaleOrders
                         : context.WholesaleOrders.Where(filter)
                     join line in context.Lines on wholesaleOrder.LinesId equals line.Id
-                    join orderviainternetinfo in context.OrderViaInternetInfos on wholesaleOrder.OrdersViaInternetInfoId
+                    join orderviainternetinfo in context.OrdersViaInternetInfos on wholesaleOrder.OrdersViaInternetInfoId
                         equals orderviainternetinfo.Id
                     join discount in context.Discounts on wholesaleOrder.DiscountsId equals discount.Id
                     join payment in context.Payments on wholesaleOrder.PaymentsId equals payment.Id
