@@ -5,6 +5,7 @@ namespace Entities.DTOs
     public class RetailCustomerDto : IDto
     {
         public int Id { get; set; }
+        public string CurrAccCode { get; set; }
         public int ModelType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
