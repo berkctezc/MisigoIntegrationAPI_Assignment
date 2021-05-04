@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
             using (EntegrasyonDbContext context = new EntegrasyonDbContext())
             {
                 var result =
-                    from procedure in filter is null ? context.Procedures : context.Procedures.Where(filter)
+                    from procedure in context.Procedures
                     join parameter in context.Parameters
                         on procedure.ParametersId equals parameter.Id
                     select new ProcedureDto

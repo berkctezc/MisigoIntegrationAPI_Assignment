@@ -5,8 +5,8 @@ namespace Entities.DTOs
     public class RetailCustomerDto : IDto
     {
         public int Id { get; set; }
-        public string CurrAccCode { get; set; }
         public int ModelType { get; set; }
+        public string CurrAccCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IdentityNum { get; set; }
@@ -24,7 +24,7 @@ namespace Entities.DTOs
         public string Address { get; set; }
         //
         public int AttributesId { get; set; }
-        public int AttributeTypeCode { get; set; }
+        public byte AttributeTypeCode { get; set; }
         public string AttributeCode { get; set; }
         //
         public int CommunicationsId { get; set; }

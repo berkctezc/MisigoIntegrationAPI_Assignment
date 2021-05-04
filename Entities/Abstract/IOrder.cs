@@ -11,7 +11,7 @@ namespace Entities.Abstract
         public string OfficeCode { get; set; }
         public string ShipmentMethodCode { get; set; }
         public DateTime OrderDate { get; set; }
-        public string IsCompleted { get; set; }
+        public bool IsCompleted { get; set; }
         public bool IsSalesViaInternet { get; set; }
         public string DocumentNumber { get; set; }
         public string Description { get; set; }

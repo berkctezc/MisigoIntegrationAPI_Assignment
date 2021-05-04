@@ -13,15 +13,13 @@ namespace Entities.Concrete
         public string StoreCode { get; set; }
         public string StoreWareHouseCode { get; set; }
         public string ShipmentMethodCode { get; set; }
+        public Int16 PosTerminalID { get; set; }
         public DateTime OrderDate { get; set; }
-        public string IsCompleted { get; set; }
-        public bool CustomerTypeCode { get; set; }
+        public bool IsCompleted { get; set; }
         public bool IsSalesViaInternet { get; set; }
         public string DocumentNumber { get; set; }
-        public Guid SubCurrAccID { get; set; }
         public string Description { get; set; }
         public int LinesId { get; set; }
-        public int SumLinesId { get; set; }
         public int OrdersViaInternetInfoId { get; set; }
         public int DiscountsId { get; set; }
         public int PaymentsId { get; set; }
