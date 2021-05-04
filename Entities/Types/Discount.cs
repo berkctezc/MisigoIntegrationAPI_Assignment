@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using System;
 
 namespace Entities.Types
 {
@@ -6,8 +7,8 @@ namespace Entities.Types
     {
         public int Id { get; set; }
         public string DiscountTypeCode { get; set; }
-        public float Value { get; set; }
-        public int DiscountReasonCode { get; set; }
+        public Double Value { get; set; }
+        public byte DiscountReasonCode { get; set; }
         public bool IsPercentage { get; set; }
     }
 }

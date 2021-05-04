@@ -14,7 +14,7 @@ namespace Entities.Concrete
         public string WholeSalePriceGroupCode { get; set; }
         public decimal CreditLimit { get; set; }
         public string CurrencyCode { get; set; }
-        public int CustomerTypeCode { get; set; }
+        public byte CustomerTypeCode { get; set; }
         public string TaxNumber { get; set; }
         public string TaxOfficeCode { get; set; }
         public string MersisNum { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using System;
 
 namespace Entities.Types
 {
@@ -6,6 +7,6 @@ namespace Entities.Types
     {
         public int Id { get; set; }
         public string LotBarcode { get; set; }
-        public float Qty1 { get; set; }
+        public Double Qty1 { get; set; }
     }
 }

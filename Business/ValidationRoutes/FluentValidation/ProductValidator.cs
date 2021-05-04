@@ -7,8 +7,8 @@ namespace Business.ValidationRoutes.FluentValidation
     {
         public ProductValidator()
         {
-            RuleFor(p => p.ItemTypeCode).NotEmpty().NotNull().GreaterThanOrEqualTo(1).LessThanOrEqualTo(6);
-            RuleFor(p => p.ItemDimTypeCode).NotEmpty().NotNull().GreaterThanOrEqualTo(0).LessThanOrEqualTo(3);
+            RuleFor(p => p.ItemTypeCode).NotEmpty().NotNull();
+            RuleFor(p => p.ItemDimTypeCode).NotEmpty().NotNull();
         }
     }
 }

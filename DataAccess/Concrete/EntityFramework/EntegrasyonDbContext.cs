@@ -26,7 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<Line> Lines { get; set; }
         public DbSet<ModelType> ModelTypes { get; set; }
-        public DbSet<OrderViaInternetInfo> OrdersViaInternetInfos { get; set; }
+        public DbSet<OrderViaInternetInfo> OrdersViaInternetInfo { get; set; }
         public DbSet<Parameter> Parameters { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PostalAddress> PostalAddresses { get; set; }

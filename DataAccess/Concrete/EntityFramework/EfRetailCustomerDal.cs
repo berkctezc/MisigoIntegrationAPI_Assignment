@@ -16,9 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
             using (EntegrasyonDbContext context = new EntegrasyonDbContext())
             {
                 var result =
-                   from retailCustomer in filter is null
-                       ? context.RetailCustomers
-                       : context.RetailCustomers.Where(filter)
+                   from retailCustomer in context.RetailCustomers
                    join postalAddress in context.PostalAddresses on retailCustomer.PostalAddressesId equals postalAddress.Id
                    join attribute in context.Attributes on retailCustomer.AttributesId equals attribute.Id
                    join communication in context.Communications on retailCustomer.CommunicationsId equals communication.Id
@@ -26,6 +24,7 @@ namespace DataAccess.Concrete.EntityFramework
                    {
                        Id = retailCustomer.Id,
                        ModelType = retailCustomer.ModelType,
+                       CurrAccCode=retailCustomer.CurrAccCode,
                        FirstName = retailCustomer.FirstName,
                        LastName = retailCustomer.LastName,
                        IdentityNum = retailCustomer.IdentityNum,

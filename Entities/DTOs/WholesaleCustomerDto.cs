@@ -13,7 +13,7 @@ namespace Entities.DTOs
         public string WholeSalePriceGroupCode { get; set; }
         public decimal CreditLimit { get; set; }
         public string CurrencyCode { get; set; }
-        public int CustomerTypeCode { get; set; }
+        public byte CustomerTypeCode { get; set; }
         public string TaxNumber { get; set; }
         public string TaxOfficeCode { get; set; }
         public string MersisNum { get; set; }
@@ -27,7 +27,7 @@ namespace Entities.DTOs
         public string Address { get; set; }
         //
         public int AttributesId { get; set; }
-        public int AttributeTypeCode { get; set; }
+        public byte AttributeTypeCode { get; set; }
         public string AttributeCode { get; set; }
         //
         public int CommunicationsId { get; set; }

@@ -9,7 +9,7 @@ namespace Business.ValidationRoutes.FluentValidation
         {
             //incomplete
             Transform(from: ri => ri.ShipmentMethodCode, to: value => int.TryParse(value, out int val) ? (int?) val : null).NotEmpty().NotNull().GreaterThanOrEqualTo(1).LessThanOrEqualTo(3);
-            RuleFor(rc => rc.PaymentTypeCode).NotEmpty().NotNull().GreaterThanOrEqualTo(1).LessThanOrEqualTo(5);
+            RuleFor(rc => rc.PaymentTypeCode).NotEmpty().NotNull();
         }
     }
 }

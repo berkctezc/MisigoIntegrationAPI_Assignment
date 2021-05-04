@@ -27,18 +27,18 @@ namespace Entities.DTOs
         public string ItemCode { get; set; }
         public string ItemDim1Code { get; set; }
         public string UsedBarcode { get; set; }
-        public float Qty1 { get; set; }
-        public float LDisRate1 { get; set; }
+        public Double Qty1 { get; set; }
+        public Double LDisRate1 { get; set; }
         public string LineDescription { get; set; }
         public decimal PriceVI { get; set; }
         //
         public int SumLinesId { get; set; }
         public string LotBarcode { get; set; }
-        public float SumLinesQty1 { get; set; }
+        public Double SumLinesQty1 { get; set; }
         //
         public int SalesViaInternetInfoId { get; set; }
         public string SalesURL { get; set; }
-        public int PaymentTypeCode { get; set; }
+        public byte PaymentTypeCode { get; set; }
         public string PaymentTypeDescription { get; set; }
         public string PaymentAgent { get; set; }
         public DateTime PaymentDate { get; set; }
@@ -46,15 +46,15 @@ namespace Entities.DTOs
         //
         public int DiscountsId { set; get; }
         public string DiscountTypeCode { get; set; }
-        public float Value { get; set; }
-        public int DiscountReasonCode { get; set; }
+        public Double Value { get; set; }
+        public byte DiscountReasonCode { get; set; }
         public bool IsPercentage { get; set; }
         //
         public int PaymentsId { set; get; }
-        public int PaymentType { get; set; }
+        public byte PaymentType { get; set; }
         public string Code { get; set; }
         public string CreditCardTypeCode { get; set; }
-        public int InstallmentCount { get; set; }
+        public byte InstallmentCount { get; set; }
         public decimal Amount { get; set; }
     }
 }
