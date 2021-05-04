@@ -188,7 +188,7 @@ CREATE TABLE [dbo].[Attributes]
 CREATE TABLE [dbo].[Communications]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    CommunicationTypeCode TINYINT NOT NULL, 
+    CommunicationTypeCode VARCHAR(20) NOT NULL, 
     CommAddress VARCHAR(20) NOT NULL
 );
 
@@ -197,7 +197,7 @@ CREATE TABLE [dbo].[Discounts]
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [DiscountTypeCode] VARCHAR(10) NOT NULL, 
     [Value] FLOAT NOT NULL, 
-    [DiscountReasonCode] INT NOT NULL, 
+    [DiscountReasonCode] TINYINT NOT NULL, 
     [IsPercentage] BIT NOT NULL
 );
 
@@ -208,7 +208,7 @@ CREATE TABLE [dbo].[Lines]
 	[ItemCode] VARCHAR(30) NOT NULL, 
 	[ItemDim1Code] VARCHAR(10) NOT NULL,
 	[UsedBarcode] VARCHAR(30) NOT NULL, 
-	    [Qty1] FLOAT NULL,
+	[Qty1] FLOAT NULL,
     [LDisRate1] FLOAT NOT NULL, 
     [LineDescription] VARCHAR(200) NOT NULL, 
     [PriceVI] MONEY NOT NULL, 
@@ -238,15 +238,15 @@ CREATE TABLE [dbo].[OrdersViaInternetInfo]
     [SendDate] DATETIME NULL,
 );
 
-CREATE TABLE [dbo].[SalesViaInternetInfo]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
-	[SalesURL] VARCHAR(30) NOT NULL, 
-    [PaymentTypeCode] TINYINT NOT NULL, 
-    [PaymentTypeDescription] VARCHAR(100) NOT NULL, 
-    [PaymentAgent] VARCHAR(100) NOT NULL, 
-    [PaymentDate] DATETIME NULL, 
-    [SendDate] DATETIME NULL,
+CREATE TABLE [dbo].[SalesViaInternetInfo] (
+    [Id]                     INT           IDENTITY (1, 1) NOT NULL,
+    [SalesURL]                   VARCHAR (30)  NOT NULL,
+    [PaymentTypeCode]                  TINYINT       NOT NULL,
+    [PaymentTypeDescription] VARCHAR (100) NOT NULL,
+    [PaymentAgent]           VARCHAR (100) NOT NULL,
+    [PaymentDate]            DATETIME      NULL,
+    [SendDate]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 CREATE TABLE [dbo].[Parameters]
@@ -272,4 +272,15 @@ CREATE TABLE [dbo].[Variants]
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
 	[ColorCode] VARCHAR(10) NOT NULL,
 	[ItemDim1Code] VARCHAR(10) NOT NULL, 
+);
+
+CREATE TABLE [dbo].[PostalAddresses]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	AddressTypeCode VARCHAR (10) NOT NULL, 
+    [CountryCode] VARCHAR(10) NOT NULL, 
+    [StateCode] VARCHAR(10) NULL, 
+    [CityCode] VARCHAR(10) NULL, 
+    [DistrictCode] VARCHAR(30) NULL, 
+    [Address] VARCHAR(200) NULL,
 );
