@@ -13,9 +13,8 @@ namespace Entities.Concrete
         public string WareHouseCode { get; set; }
         public string DeliveryCompanyCode { get; set; }
         public string ShipmentMethodCode { get; set; }
-        public int PosTerminalID { get; set; }
         public DateTime OrderDate { set; get; }
-        public string IsCompleted { get; set; }
+        public bool IsCompleted { get; set; }
         public bool IsSalesViaInternet { get; set; }
         public string DocumentNumber { get; set; }
         public string Description { get; set; }

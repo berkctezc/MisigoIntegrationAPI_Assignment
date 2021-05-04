@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ? context.WholesaleOrders
                         : context.WholesaleOrders.Where(filter)
                     join line in context.Lines on wholesaleOrder.LinesId equals line.Id
-                    join orderviainternetinfo in context.OrdersViaInternetInfos on wholesaleOrder.OrdersViaInternetInfoId
+                    join orderviainternetinfo in context.OrdersViaInternetInfo on wholesaleOrder.OrdersViaInternetInfoId
                         equals orderviainternetinfo.Id
                     join discount in context.Discounts on wholesaleOrder.DiscountsId equals discount.Id
                     join payment in context.Payments on wholesaleOrder.PaymentsId equals payment.Id
@@ -33,7 +33,6 @@ namespace DataAccess.Concrete.EntityFramework
                         WareHouseCode = wholesaleOrder.WareHouseCode,
                         DeliveryCompanyCode = wholesaleOrder.DeliveryCompanyCode,
                         ShipmentMethodCode = wholesaleOrder.ShipmentMethodCode,
-                        PosTerminalID = wholesaleOrder.PosTerminalID,
                         OrderDate = wholesaleOrder.OrderDate,
                         IsCompleted = wholesaleOrder.IsCompleted,
                         IsSalesViaInternet = wholesaleOrder.IsSalesViaInternet,
@@ -84,7 +83,7 @@ namespace DataAccess.Concrete.EntityFramework
                         ? context.WholesaleOrders
                         : context.WholesaleOrders.Where(filter)
                     join line in context.Lines on wholesaleOrder.LinesId equals line.Id
-                    join orderviainternetinfo in context.OrdersViaInternetInfos on wholesaleOrder.OrdersViaInternetInfoId
+                    join orderviainternetinfo in context.OrdersViaInternetInfo on wholesaleOrder.OrdersViaInternetInfoId
                         equals orderviainternetinfo.Id
                     join discount in context.Discounts on wholesaleOrder.DiscountsId equals discount.Id
                     join payment in context.Payments on wholesaleOrder.PaymentsId equals payment.Id
@@ -97,7 +96,6 @@ namespace DataAccess.Concrete.EntityFramework
                         WareHouseCode = wholesaleOrder.WareHouseCode,
                         DeliveryCompanyCode = wholesaleOrder.DeliveryCompanyCode,
                         ShipmentMethodCode = wholesaleOrder.ShipmentMethodCode,
-                        PosTerminalID = wholesaleOrder.PosTerminalID,
                         OrderDate = wholesaleOrder.OrderDate,
                         IsCompleted = wholesaleOrder.IsCompleted,
                         IsSalesViaInternet = wholesaleOrder.IsSalesViaInternet,
