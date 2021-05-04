@@ -14,7 +14,7 @@ namespace Entities.Concrete
         public string WareHouseCode { get; set; }
         public string DeliveryCompanyCode { get; set; }
         public string ShipmentMethodCode { get; set; }
-        public int PosTerminalID { get; set; }
+        public Int16 PosTerminalID { get; set; }
         public string Series { get; set; }
         public int SeriesNumber { get; set; }
         public DateTime InvoiceDate { set; get; }
