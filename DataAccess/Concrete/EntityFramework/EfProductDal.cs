@@ -16,9 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
             using (EntegrasyonDbContext context = new EntegrasyonDbContext())
             {
                 var result =
-                   from product in filter is null
-                       ? context.Products
-                       : context.Products.Where(filter)
+                   from product in context.Products
                    join attribute in context.Attributes on product.AttributesId equals attribute.Id
                    join variant in context.Variants on product.VariantsId equals variant.Id
                    select new ProductDto()
